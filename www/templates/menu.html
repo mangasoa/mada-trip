@@ -1,0 +1,155 @@
+<ion-side-menus enable-menu-with-back-views="false">
+	<ion-side-menu-content>
+		<ion-nav-bar class="bar-stable">
+		  	<ion-nav-back-button>
+		  	</ion-nav-back-button>
+
+		  	<ion-nav-buttons side="left">
+			<button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+			</button>
+			</ion-nav-buttons>
+
+			<ion-nav-buttons side="right">
+			<button class="button button-icon button-clear ion-map" menu-toggle="right">
+            </button>
+		  	</ion-nav-buttons>
+		</ion-nav-bar>
+			
+		<ion-nav-view name="menuContent"></ion-nav-view>
+	</ion-side-menu-content>
+
+	<ion-side-menu side="left">
+		<ion-header-bar class="bar-stable">
+			<h1 class="title">Menu</h1>
+		</ion-header-bar>
+		<ion-content>
+		  <ion-list>
+			<ion-item menu-close ng-click="login()">
+			  Login
+			</ion-item>
+			<ion-item menu-close href="#/app/trips">
+			  Accueil
+			</ion-item>
+			<ion-item menu-close href="#/app/apropos">
+			  A propos
+			</ion-item>
+			<ion-item menu-close href="#/app/avantvoyage">
+			  Avant le voyage
+			</ion-item>
+			<ion-item menu-close href="#/app/faq">
+			  FAQ
+			</ion-item>
+			<ion-item menu-close href="#/app/partenaire">
+			  Nos partenaires
+			</ion-item>
+			<ion-item menu-close href="#/app/parametre">
+			  Paramètres
+			</ion-item>
+			<ion-item menu-close href="#/app/contact">
+			  Contactez-nous
+			</ion-item>
+		  </ion-list>
+		</ion-content>
+	</ion-side-menu>
+
+
+	<ion-side-menu side="right">
+		<ion-header-bar class="bar-stable">
+			<h1 class="title">Choisir son voyage</h1>
+		</ion-header-bar>
+		<ion-content>
+		    <form id="form-recherche">
+			    <h4>Je recherche</h4>
+			    <input type="text" value="Date d'arrivée" id="datepicker" />
+			    <input type="text" value="Date de départ" id="datepicker2"/>
+			    <div>
+			        <label for="TypeVoyage">Type de voyage</label>
+			        <br/>
+			        <select name="TypeVoyage" id="TypeVoyage">
+			            <option value="affichertous"></option>
+			            <option value="0">Voyage écotouriste</option>
+			            <option value="1">Vacances sportives</option>
+			            <option value="2">Vacances à la mer</option>
+			            <option value="3">Vacances bien être</option>
+			            <option value="4">Voyage culturel</option>
+			            <option value="5">Voyage de luxe</option>
+			            <option value="6">Volontourisme</option>
+			        </select>
+			    </div>
+			   
+			    <div>
+			        <label for="choixregion">Choix de la Région</label>
+			        <br/>
+			        <select name="choixregion" id="choixregion">
+			            <option value="affichertous"></option>
+			            <option value="7">Nord</option>
+			            <option value="8">Nord-Ouest</option>
+			            <option value="9">Nord-Est</option>
+			            <option value="10">Centre-Ouest</option>
+			            <option value="11">Centre</option>
+			            <option value="12">Centre-Est</option>
+			            <option value="13">Sud-Ouest</option>
+			            <option value="14">Sud-Est</option>
+			            <option value="15">Sud</option>
+			        </select>
+			    </div>
+				</br>
+						<input type="submit" value="Rechercher"/>
+				</br>
+			</form>
+				</br>
+			
+
+			<form>
+				<h4>Ou Précisement</h4>
+			    <div>
+			        <label for="Voyagefamille">Voyage en famille</label>
+			        <br/>
+			        <select name="Voyagefamille" id="Voyagefamille">
+			            <option value="circuitRec"></option>
+			            <option value="Topdestin">Top 3 destination</option>
+			            <option value="circuitRec">Circuits recommandés</option>
+
+			        </select>
+			    </div>
+
+
+			    <div>
+			        <label for="choixregion2">Voyage en groupe</label>
+			        <br/>
+			        <select name="choixregion2" id="choixregion2">
+			            <option value="nordest"></option>
+			            <option value="affichertous">Top 3 destination</option>
+			            <option value="nordouest">Circuits recommandés</option>
+
+			        </select>
+			    </div>
+
+
+
+			    <div>
+			        <label for="dureeVoyage">Voyage en solo</label>
+			        <br/>
+			        <select name="dureeVoyage" id="dureeVoyage">
+			            <option value="troismois"></option>
+			            <option value="courte">Top 3 destination </option>
+			            <option value="unmois">Circuits recommandés </option>
+
+			        </select>
+			    </div>
+			    <div>
+			        <label for="dureeVoyage">Les incontournables</label>
+			        <br/>
+			        <select name="dureeVoyage" id="dureeVoyage">
+			            <option value="16">Circuit 1 à 4 semaines </option>
+			            <option value="17">Circuit 1 mois+ </option>
+			            <option value="18">Circuit 3 mois+</option>
+			        </select>
+			    </div>
+				</br>
+					<input type="submit" value="Rechercher"/>
+					</br>
+			</form>
+		</ion-content>
+	</ion-side-menu>
+</ion-side-menus>
