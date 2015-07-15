@@ -1,0 +1,47 @@
+#map {
+	display: block;
+    width: 450px;
+    height:750px;
+}
+
+.homeimg{
+  text-align:center;
+  font-size:20px;
+   padding-bottom: 5px;
+}
+.icon.ion-ios-heart-outline{
+  margin:260px;
+}
+
+.icon.ion-ios-star-outline{
+  margin:280px;
+}
+
+.icon.ion-asterisk{
+  margin:260px;
+}
+
+.icon.ion-thumbsup{
+  margin:220px;
+}
+.icon.ion-icecream{
+  margin:240px;
+}
+
+.angular-google-map-container { height: 750px; }
+
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}

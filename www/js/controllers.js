@@ -55,4 +55,5 @@ angular.module('starter.controllers', [])
 })
 
 .controller('DetailsCtrl', function($scope, $stateParams) {
-});
+})
+

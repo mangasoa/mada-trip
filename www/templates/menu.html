@@ -48,7 +48,7 @@
 			<ion-item menu-close href="#/app/contact">
 			  Contactez-nous
 			</ion-item>
-		  </ion-list>
+		  
 		</ion-content>
 	</ion-side-menu>
 
@@ -58,6 +58,12 @@
 			<h1 class="title">Choisir son voyage</h1>
 		</ion-header-bar>
 		<ion-content>
+		<ion-list>
+			<ion-item menu-close href="#/app/map">
+			 	Map
+			</ion-item>
+		<ion-list>
+		<div class="padding">
 		    <form id="form-recherche">
 			    <h4>Je recherche</h4>
 			    <input type="text" value="Date d'arrivée" id="datepicker" />
@@ -150,6 +156,7 @@
 					<input type="submit" value="Rechercher"/>
 					</br>
 			</form>
+		</div>
 		</ion-content>
 	</ion-side-menu>
 </ion-side-menus>

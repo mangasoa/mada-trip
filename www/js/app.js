@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic','starter.controllers','madamap.controllers','firebase','avantvoyage.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -29,7 +29,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     templateUrl: "templates/menu.html",
     controller: 'AppCtrl'
   })
-
+/* start router menu left*/
   .state('app.apropos', {
     url: "/apropos",
     views: {
@@ -79,7 +79,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
-    .state('app.trips', {
+  .state('app.trips', {
       url: "/trips",
       views: {
         'menuContent': {
@@ -88,7 +88,22 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+/* end router menu left*/
 
+/* start router menu right*/
+  .state('app.map', {
+    url: "/map",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/map.html"
+      }
+    }
+  })
+/* end router menu right*/    
+
+/* start router lists different types of trips */
+
+    /* start router lists type volontourisme */
    .state('app.lists', {
     url: "/lists",
     views: {
@@ -97,16 +112,55 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+   /* start router lists type ecotourisme */
+   .state('app.listseco', {
+    url: "/listseco",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/listseco.html"
+      }
+    }
+  })
+   /* start router lists type ville */
+  .state('app.listsville', {
+    url: "/listsville",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/listsville.html"
+      }
+    }
+  })
+  /* start router lists type rando */
+  .state('app.listsrando', {
+    url: "/listsrando",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/listsrando.html"
+      }
+    }
+  })
+  /* start router lists type plage */
+  .state('app.listsplage', {
+    url: "/listsplage",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/listsplage.html"
+      }
+    }
+  })
+/* end router lists different types of trips */
 
+/* start router lists details of different types of trips */
   .state('app.lists.details', {
     url: "/lists/:detailsId",
     views: {
       'menuContent': {
         templateUrl: "templates/details.html"
-
       }
-    }  
+    }
   });
-  // if none of the above states are matched, use this as the fallback
+/* end router lists details of different types of trips */ 
+
+// if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/trips');
 });
