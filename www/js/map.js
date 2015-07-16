@@ -2,6 +2,16 @@ angular.module('madamap.controllers', ['starter.controllers','starter'])
 
 .controller('MadaMapCtrl', function($scope, $ionicLoading, $compile, $firebaseArray) 
 {
+	$scope.currentDate = new Date();
+	$scope.title = "Custom Title";
+
+	$scope.datePickerCallback = function (val) {
+    if(typeof(val)==='undefined'){      
+        console.log('Date not selected');
+    }else{
+        console.log('Selected date is : ', val);
+    }
+};
 	var ref = new Firebase("https://my-madagascar-trip.firebaseio.com/locations");
 	//Liste des fenêtres qui contiennent la description de la randonnée
 	var infoWindows = [];

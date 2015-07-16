@@ -2,6 +2,11 @@
   <ion-content>
     <h1>Map</h1>
     <h2>Select trip</h2>
+
+    	<ionic-datepicker idate="currentDate" disablepreviousdates="true"  disablefuturedates="false" callback="datePickerCallback" title="title">
+		    			<button class="button button-block button-positive"> 
+		    			{{ currentDate | date:'dd - MMMM - yyyy' }} </button>
+				</ionic-datepicker>
    
 		<div id="map" ng-controller="MadaMapCtrl" data-tap-disabled="true"> </div>
 	

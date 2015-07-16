@@ -41,6 +41,45 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller('ContactCtrl', function($scope, $ionicLoading) {
+    
+  $scope.message = {
+    'name' : '',
+    'email' : '',
+    'subject' : '',
+    'body' : ''
+  };
+  
+  $scope.finalSubmit = function() {
+    $ionicLoading.show({ template: 'Submitting...', duration: 1500})
+  }
+  
+  
+})
+
+.directive('formManager', function($ionicLoading) {
+  return {
+    restrict : 'A',
+    controller : function($scope) {
+      
+      $scope.$watch('faleComigoForm.$valid', function() {
+        console.log("Form validity changed. Now : " + $scope.faleComigoForm.$valid);
+      });
+      
+      $scope.submit = function() {
+        
+        if($scope.faleComigoForm.$valid) {
+          $scope.finalSubmit();
+        } else {
+          $ionicLoading.show({ template: 'Form Is Not Valid', duration: 1500})
+        }
+
+        
+      }
+    }
+  }
+})
+
 .controller('TripsCtrl', function($scope) {
   $scope.trips = [
     { title: 'volunteer', id: 1 },
@@ -52,6 +91,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ListsCtrl', function($scope, $stateParams) {
+
 })
 
 .controller('DetailsCtrl', function($scope, $stateParams) {

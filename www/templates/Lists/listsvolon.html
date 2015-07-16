@@ -1,0 +1,41 @@
+<ion-view view-title="Volontourisme humanitaire">
+  <ion-content>
+    <h2>S'engager auprès de nos ONG coups de coeur</h2>
+    <!--<div id="map" ng-controller="ListsCtrl" data-tap-disabled="true">
+    	<ul>
+     		<li ng-repeat="trip in trips| filter:query| orderBy:'type'">
+     			{{trip.ville + '  ' + trip.region + '  ' + trip.type}} 
+     		</li> 
+     	</ul>	
+    </div>-->
+    <ion-list>
+		  <!--<ion-item ng-repeat="trip in trips" href="#/app/trips/{{trip.id}}">-->
+		  <ion-item href="#/app/details1volon">
+			<img ng-src="img/educJeune.jpg" width="100%" />
+			<h3 class="homeimg">ONG Azafady active pour l'éducation des jeunes</h3>
+			<button class="button button-block button-balanced">Partagez votre temps avec des jeunes</button>
+		  </ion-item>
+		  <ion-item href="#/app/details2volon">
+			<img ng-src="img/plantation-arbre.jpg" width="100%">
+			<h3 class="homeimg">ONG Graines de sable très créative pour la plantation d'arbre à Madagascar</h3>
+			<button class="button button-block button-balanced" width="50px">Participez à la renaissance de la forêt tropicale</button>
+		</ion-item>
+		<ion-item href="#/app/details3volon">
+			<img ng-src="img/kidsEduc.jpg" width="100%"> 
+			<h3 class="homeimg">ONG Sarobidy prenant soin d'enfants orphelins à Antananarivo</h3>
+			<button class="button button-block button-balanced" width="50px">Découvrez le sourire de ces enfants Malgaches </button>
+		</ion-item>
+		<ion-item href="#/app/details4volon">
+			<img ng-src="img/Lemuriens-soins.jpg" width="100%">  
+			<h3 class="homeimg">ONG Reniala soutenant la préservation des lémuriens</h3>
+			<button class="button button-block button-balanced" width="50px">Participez à la préservation des lémuriens</button>
+		</ion-item>
+		<ion-item href="#/app/details5volon">	    
+			<img ng-src="img/administration-services.jpg" width="100%">
+			<h3 class="homeimg">Association Madagascar Biodiversity Partnership </h3>
+			<button class="button button-block button-balanced" width="50px">Offrez des compétences selon vos disponibilités</button>
+		</ion-item>
+		</ion-list>
+
+  </ion-content>
+</ion-view>

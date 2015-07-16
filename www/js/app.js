@@ -29,12 +29,25 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     templateUrl: "templates/menu.html",
     controller: 'AppCtrl'
   })
+
+/* Start router HOME page- Annonce top favoris-recommandation-coups de coeur etc...*/  
+  .state('app.trips', {
+      url: "/trips",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/trips.html",
+          controller: 'TripsCtrl'
+        }
+      }
+    })
+/* end router HOME page*/
+
 /* start router menu left*/
   .state('app.apropos', {
     url: "/apropos",
     views: {
       'menuContent': {
-        templateUrl: "templates/apropos.html"
+        templateUrl: "templates/Menuside/apropos.html"
       }
     }
   })
@@ -79,15 +92,6 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
       }
     }
   })
-  .state('app.trips', {
-      url: "/trips",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/trips.html",
-          controller: 'TripsCtrl'
-        }
-      }
-    })
 /* end router menu left*/
 
 /* start router menu right*/
@@ -101,14 +105,14 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
   })
 /* end router menu right*/    
 
-/* start router lists different types of trips */
+/* start router lists different types of trips de la home page */
 
     /* start router lists type volontourisme */
-   .state('app.lists', {
-    url: "/lists",
+   .state('app.listsvolon', {
+    url: "/listsvolon",
     views: {
       'menuContent': {
-        templateUrl: "templates/lists.html"
+        templateUrl: "templates/Lists/listsvolon.html"
       }
     }
   })
@@ -117,7 +121,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     url: "/listseco",
     views: {
       'menuContent': {
-        templateUrl: "templates/listseco.html"
+        templateUrl: "templates/Lists/listseco.html"
       }
     }
   })
@@ -126,7 +130,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     url: "/listsville",
     views: {
       'menuContent': {
-        templateUrl: "templates/listsville.html"
+        templateUrl: "templates/Lists/listsville.html"
       }
     }
   })
@@ -135,7 +139,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     url: "/listsrando",
     views: {
       'menuContent': {
-        templateUrl: "templates/listsrando.html"
+        templateUrl: "templates/Lists/listsrando.html"
       }
     }
   })
@@ -144,7 +148,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     url: "/listsplage",
     views: {
       'menuContent': {
-        templateUrl: "templates/listsplage.html"
+        templateUrl: "templates/Lists/listsplage.html"
       }
     }
   })
@@ -159,6 +163,14 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
       }
     }
   });
+  /*.state('app.lists.detailslist_eco1', {
+    url: "/Detailslistes/detailslist_eco1",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/Detailslistes/detailslist_eco1.html"
+      }
+    }
+  });*/
 /* end router lists details of different types of trips */ 
 
 // if none of the above states are matched, use this as the fallback

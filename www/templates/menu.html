@@ -68,6 +68,11 @@
 			    <h4>Je recherche</h4>
 			    <input type="text" value="Date d'arrivée" id="datepicker" />
 			    <input type="text" value="Date de départ" id="datepicker2"/>
+
+			    <ionic-datepicker idate="currentDate" disablepreviousdates="true"  disablefuturedates="false" callback="datePickerCallback" title="title">
+		    			<button class="button button-block button-positive"> 
+		    			{{ currentDate | date:'dd - MMMM - yyyy' }} </button>
+				</ionic-datepicker>
 			    <div>
 			        <label for="TypeVoyage">Type de voyage</label>
 			        <br/>
