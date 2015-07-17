@@ -1,8 +1,26 @@
-<ion-view view-title="Browse">
+<ion-view view-title="Contact">
   <ion-content>
     <h1>Contactez-nous</h1>
      <form  name="faleComigoForm" class="falecomigo" novalidate form-manager >
+                        <h3>Vous êtes:</h3>
+
                         <div class="list list-inset" >
+                             <label class="checkbox">
+                                <input type="checkbox" ng-click="clickItem(item); $event.stopPropagation();" ng-model="item.checked">
+                            Un particulier </label>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-click="clickItem(item); $event.stopPropagation();" ng-model="item.checked">
+                            Une organisation </label>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-click="clickItem(item); $event.stopPropagation();" ng-model="item.checked">
+                            Une association </label>
+                            <label class="checkbox">
+                            <input type="checkbox" ng-click="clickItem(item); $event.stopPropagation();" ng-model="item.checked">
+                            Une agence de voyage </label>
+                            <label class="checkbox">
+                            <input type="checkbox" ng-click="clickItem(item); $event.stopPropagation();" ng-model="item.checked">
+                            Autre </label>
+                            <br/><br/>
                             <label class="item item-input">
                                 <input ng-model="message.name" name="fieldName" type="text" placeholder="Nom" required ng-minlength="2" ng-maxlength="70">
                             </label>
@@ -10,10 +28,10 @@
                                 <input ng-model="message.email" name="fieldEmail" type="email" placeholder="E-mail" required ng-maxlength="50">
                             </label>
                             <label class="item item-input">
-                                <input ng-model="message.subject" name="fieldSubject" type="text" placeholder="Assunto" required ng-minlength="2" ng-maxlength="70">
+                                <input ng-model="message.subject" name="fieldSubject" type="text" placeholder="Adresse" required ng-minlength="2" ng-maxlength="70">
                             </label>
                             <label class="item item-input">
-                                <textarea ng-model="message.body" name="fieldBody" placeholder="Mensagem" rows="3" required ng-minlength="2" ng-maxlength="70"></textarea>
+                                <textarea ng-model="message.body" name="fieldBody" placeholder="Message" rows="3" required ng-minlength="2" ng-maxlength="70"></textarea>
                             </label>
                         </div>
 

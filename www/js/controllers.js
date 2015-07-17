@@ -42,7 +42,34 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ContactCtrl', function($scope, $ionicLoading) {
-    
+   $scope.toggleItem = function(item){
+    item.checked = !item.checked;
+  };
+  
+  $scope.data = {
+    showDelete: false
+  };
+  
+  $scope.itemButtons = [
+    {
+      text: 'Edit',
+      type: 'button-assertive',
+      onTap: function(item) {
+        alert('Edit Item: ' + item.id);
+      }
+    },
+    {
+      text: 'Share',
+      type: 'button-calm',
+      onTap: function(item) {
+        alert('Share Item: ' + item.id);
+      }
+    }
+  ];
+  
+  $scope.onItemDelete = function(item) {
+    $scope.items.splice($scope.items.indexOf(item), 1);
+  }; 
   $scope.message = {
     'name' : '',
     'email' : '',
