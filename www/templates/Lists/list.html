@@ -1,0 +1,15 @@
+<ion-view view-title="Volontourisme humanitaire">
+<ion-nav-title>
+	listes
+</ion-nav-title>
+  <ion-content>
+    <h2>S'engager auprès de nos ONG coups de coeur</h2>
+    <ion-list>
+		<ion-item ng-repeat="el in lists">
+			<img ng-src="{{el.imgUrl}}" width="100%" />
+			<h3 class="homeimg">{{el.titre}}</h3>
+			<button class="button button-block button-balanced" ng-click="$state.go('app.list.detail', {detailId:el.id});">{{el.slogan}}</button>
+		</ion-item>
+	</ion-list>
+  </ion-content>
+</ion-view>

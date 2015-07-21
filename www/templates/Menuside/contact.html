@@ -1,0 +1,37 @@
+<ion-view view-title="Contact">
+  <ion-content>
+    <h1>Contactez-nous</h1>
+     <form  name="faleComigoForm" class="falecomigo" novalidate form-manager >
+                       
+
+                        <div class="list list-inset" > 
+                            <h3>Vous souhaitez:</h3>
+                             <label class="checkbox">
+                                <input type="checkbox" ng-click="clickItem(item); $event.stopPropagation();" ng-model="item.checked">
+                            Créer un partenariat </label>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-click="clickItem(item); $event.stopPropagation();" ng-model="item.checked">
+                            simplement nous contacter </label>
+                            <br/><br/>
+                            <label class="item item-input">
+                                <input ng-model="message.name" name="fieldName" type="text" placeholder="Nom" required ng-minlength="2" ng-maxlength="70">
+                            </label>
+                            <label class="item item-input">
+                                <input ng-model="message.email" name="fieldEmail" type="email" placeholder="E-mail" required ng-maxlength="50">
+                            </label>
+                            <label class="item item-input">
+                                <input ng-model="message.subject" name="fieldSubject" type="text" placeholder="Adresse" required ng-minlength="2" ng-maxlength="70">
+                            </label>
+                            <label class="item item-input">
+                                <textarea ng-model="message.body" name="fieldBody" placeholder="Message" rows="3" required ng-minlength="2" ng-maxlength="70"></textarea>
+                            </label>
+                        </div>
+                        <div class="padding container">
+                            <div class="row">
+                                <button ng-click="reset()"  class="button button-assertive button-small col col-40"> Annuler </button>
+                                <button ng-click="submit()" class="button button-balanced  button-small col col-40 col-offset-10"> Envoyer </button>
+                            </div>
+                        </div>
+                    </form>
+  </ion-content>
+</ion-view>

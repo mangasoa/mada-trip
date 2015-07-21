@@ -1,15 +1,21 @@
-<ion-view view-title="Détails Ecotourisme">
+<ion-view view-title="Volontourisme humanitaire">
   <ion-content>
-    <h2>Détails Ecotourisme 1</h2>
+    <h2>S'engager auprès de nos ONG coups de coeur</h2>
     <!--<div id="map" ng-controller="ListsCtrl" data-tap-disabled="true">
-    	<ul>
-     		<li ng-repeat="trip in trips| filter:query| orderBy:'type'">
-     			{{trip.ville + '  ' + trip.region + '  ' + trip.type}} 
-     		</li> 
-     	</ul>	
+        <ul>
+            <li ng-repeat="trip in trips| filter:query| orderBy:'type'">
+                {{trip.ville + '  ' + trip.region + '  ' + trip.type}} 
+            </li> 
+        </ul>   
     </div>-->
     <ion-list>
-		  <!--<ion-item ng-repeat="trip in trips" href="#/app/trips/{{trip.id}}">-->
-		  
+          <!--<ion-item ng-repeat="trip in trips" href="#/app/trips/{{trip.id}}">-->  
+        <ion-item ng-repeat="el in details">
+            <img ng-src="{{el.imgUrl}}" width="100%" />
+            <h3 class="homeimg">{{el.titre}}</h3>
+            <button class="button button-block button-balanced">{{el.slogan}}</button>
+        </ion-item>
+    </ion-list>
+
   </ion-content>
 </ion-view>

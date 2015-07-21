@@ -1,0 +1,13 @@
+<ion-view view-title="My Madagascar Trip">
+  	<ion-content>
+		<ion-list>
+		  <ion-item ng-repeat="trip in trips">
+			<img ng-src="{{trip.imgUrl}}"width="100%"/>
+			<h3 class="homeimg"></h3>
+			<i class="icon ion-ios-heart-outline">{{trip.top}}</i>
+			<h2 class="homeimg">{{trip.titre}}</h2>
+			<button class="button button-block button-balanced" ng-click="goTo(trip.typeName)">{{trip.annonce}}</button>
+		  </ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>

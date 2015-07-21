@@ -1,6 +1,6 @@
 angular.module('avantvoyage.controllers', [])
 	.controller('AvantTripCtrl', function($scope) {
-		var groups =[
+		$scope.groups =[
 			{
 				name:'Quand partir?',
 				description:'Plusieurs variations de Lorem Ipsum peuvent être trouvées ici ou là, mais la majeure partie addition ne ressemblent pas une seconde à du texte standard.',
@@ -42,20 +42,6 @@ angular.module('avantvoyage.controllers', [])
 				image:'http://lorempicsum.com/futurama/100/100/8'
 			}
 		];
-
-					$scope.groups = groups;
-			  for (var i = 0; i < 8; i++) 
-			 {
-			  		//$scope.groups = groups.concat(groups.slice(0))
-			    $scope.groups[i] = {
-			     name: i,
-			      items: []
-			    };
-			    for (var j = 0; j < 3; j++) {
-			      $scope.groups[i].items.push(i + 'groups.description' +j );
-			    }
-			  }
-
 			  /*
 			   * if given group is the selected group, deselect it
 			   * else, select the given group

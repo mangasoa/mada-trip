@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic','starter.controllers','madamap.controllers','firebase','avantvoyage.controllers'])
+angular.module('starter', ['ionic','starter.controllers','madamap.controllers','firebase','avantvoyage.controllers','ionic-datepicker'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -26,7 +26,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
   .state('app', {
     url: "/app",
     abstract: true,
-    templateUrl: "templates/menu.html",
+    templateUrl: "templates/Menuside/menu.html",
     controller: 'AppCtrl'
   })
 
@@ -35,7 +35,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
       url: "/trips",
       views: {
         'menuContent': {
-          templateUrl: "templates/trips.html",
+          templateUrl: "templates/HomeTripsLists/trips.html",
           controller: 'TripsCtrl'
         }
       }
@@ -56,7 +56,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     url: "/avantvoyage",
     views: {
       'menuContent': {
-        templateUrl: "templates/avantvoyage.html"
+        templateUrl: "templates/Menuside/avantvoyage.html"
       }
     }
   })
@@ -64,7 +64,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     url: "/faq",
     views: {
       'menuContent': {
-        templateUrl: "templates/faq.html"
+        templateUrl: "templates/Menuside/faq.html"
       }
     }
   })
@@ -72,7 +72,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     url: "/partenaire",
     views: {
       'menuContent': {
-        templateUrl: "templates/partenaire.html"
+        templateUrl: "templates/Menuside/partenaire.html"
       }
     }
   })
@@ -80,7 +80,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     url: "/parametre",
     views: {
       'menuContent': {
-        templateUrl: "templates/parametre.html"
+        templateUrl: "templates/Menuside/parametre.html"
       }
     }
   })
@@ -88,7 +88,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     url: "/contact",
     views: {
       'menuContent': {
-        templateUrl: "templates/contact.html"
+        templateUrl: "templates/Menuside/contact.html"
       }
     }
   })
@@ -99,7 +99,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     url: "/map",
     views: {
       'menuContent': {
-        templateUrl: "templates/map.html"
+        templateUrl: "templates/Menuside/map.html"
       }
     }
   })
@@ -107,70 +107,29 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
 
 /* start router lists different types of trips de la home page */
 
-    /* start router lists type volontourisme */
-   .state('app.listsvolon', {
-    url: "/listsvolon",
+    /* start router lists type volontourisme ecotourisme ville rando plage*/
+   .state('app.list', {
+    url: "/list/:type",
     views: {
       'menuContent': {
-        templateUrl: "templates/Lists/listsvolon.html"
+        templateUrl: "templates/Lists/list.html",
+        controller: 'ListsCtrl'
       }
     }
   })
-   /* start router lists type ecotourisme */
-   .state('app.listseco', {
-    url: "/listseco",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/Lists/listseco.html"
-      }
-    }
-  })
-   /* start router lists type ville */
-  .state('app.listsville', {
-    url: "/listsville",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/Lists/listsville.html"
-      }
-    }
-  })
-  /* start router lists type rando */
-  .state('app.listsrando', {
-    url: "/listsrando",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/Lists/listsrando.html"
-      }
-    }
-  })
-  /* start router lists type plage */
-  .state('app.listsplage', {
-    url: "/listsplage",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/Lists/listsplage.html"
-      }
-    }
-  })
+   
 /* end router lists different types of trips */
 
 /* start router lists details of different types of trips */
-  .state('app.lists.details', {
-    url: "/lists/:detailsId",
+  .state('app.list.detail', {
+    url: "/:detailId",
     views: {
       'menuContent': {
-        templateUrl: "templates/details.html"
+        templateUrl: "templates/DetailsListes/detail.html",
+        controller: 'DetailsCtrl'
       }
     }
   });
-  /*.state('app.lists.detailslist_eco1', {
-    url: "/Detailslistes/detailslist_eco1",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/Detailslistes/detailslist_eco1.html"
-      }
-    }
-  });*/
 /* end router lists details of different types of trips */ 
 
 // if none of the above states are matched, use this as the fallback

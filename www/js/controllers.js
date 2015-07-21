@@ -39,6 +39,18 @@ angular.module('starter.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
+
+  //datepicker
+  $scope.currentDate = new Date();
+
+  $scope.datePickerCallback = function (val) {
+      if(typeof(val)==='undefined'){      
+          console.log('Date not selected');
+      }else{
+          console.log('Selected date is : ', val);
+      }
+  };
+
 })
 
 .controller('ContactCtrl', function($scope, $ionicLoading) {
@@ -107,20 +119,36 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('TripsCtrl', function($scope) {
-  $scope.trips = [
-    { title: 'volunteer', id: 1 },
-    { title: 'ecotourism', id: 2 },
-    { title: 'tourism', id: 3 },
-    { title: 'insolite', id: 4 },
-    { title: 'plage', id: 5 }
-  ];
-})
+.controller('TripsCtrl', function($scope, $firebaseArray, $state) {
+  var ref = new Firebase('https://my-madagascar-trip.firebaseio.com/locationTypes');
+  $scope.trips = $firebaseArray(ref);
+  $scope.trips.$loaded;
 
-.controller('ListsCtrl', function($scope, $stateParams) {
+  $scope.goTo = function(typeName) {
+    $state.go('app.list',{type:typeName});
+  }
 
 })
 
-.controller('DetailsCtrl', function($scope, $stateParams) {
+.controller('ListsCtrl', function($scope, $state, $stateParams, $firebaseArray) {
+  var ref = new Firebase('https://my-madagascar-trip.firebaseio.com/locationLists');
+  lists = $firebaseArray(ref);
+  lists.$loaded().then(function(data){
+    $scope.lists = [];
+    for(var i=0;i<lists.length;i++){
+      if(lists[i].ListName == $stateParams.type){
+        $scope.lists.push(lists[i]);
+      }
+    }
+  });
+
+  $scope.goToDetail = function(id){
+    console.log(id);
+    $state.go('app.list.detail', {detailId: id});
+  }
+})
+
+.controller('DetailsCtrl', function($scope, $stateParams, $firebaseArray) {
+  console.log($stateParams.detailId);
 })
 
