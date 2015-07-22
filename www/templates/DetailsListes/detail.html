@@ -1,5 +1,21 @@
 <ion-view view-title="ggg">
   <ion-content>
-    <h2>aaaaaa</h2>
+   
+    <div class="subheader"> 
+    <h3>Voyage au bout du monde</h3>
+    
+				<button class="button button-icon ion-android-share-alt">Partager
+	            </button>
+		  	
+    </div>
+    <ion-list>
+		<ion-item>
+			<img ng-src="{{detail.imgUrl}}" width="100%" />
+			<h3 class="homeimg">{{el.titre}}</h3>
+			<button class="button button-block button-balanced">{{detail.slogan}}</button>
+		</ion-item>
+	</ion-list>
+	{{location.description}}
+	
   </ion-content>
 </ion-view>

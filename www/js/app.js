@@ -40,6 +40,18 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
         }
       }
     })
+
+/* Start search*/  
+  .state('app.search', {
+      url: "/search",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/Search/search.html",
+          controller: 'SearchCtrl'
+        }
+      }
+    })
+
 /* end router HOME page*/
 
 /* start router menu left*/
@@ -48,6 +60,16 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     views: {
       'menuContent': {
         templateUrl: "templates/Menuside/apropos.html"
+      }
+    }
+  })
+
+ .state('app.map', {
+    url: "/map",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/Menuside/map.html",
+        controller:'MadaMapCtrl'
       }
     }
   })
@@ -95,14 +117,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
 /* end router menu left*/
 
 /* start router menu right*/
-  .state('app.map', {
-    url: "/map",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/Menuside/map.html"
-      }
-    }
-  })
+
 /* end router menu right*/    
 
 /* start router lists different types of trips de la home page */
@@ -121,8 +136,8 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
 /* end router lists different types of trips */
 
 /* start router lists details of different types of trips */
-  .state('app.list.detail', {
-    url: "/:detailId",
+  .state('app.detail', {
+    url: "/detail/:detailId",
     views: {
       'menuContent': {
         templateUrl: "templates/DetailsListes/detail.html",

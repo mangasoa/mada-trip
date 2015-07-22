@@ -8,7 +8,7 @@
 		<ion-item ng-repeat="el in lists">
 			<img ng-src="{{el.imgUrl}}" width="100%" />
 			<h3 class="homeimg">{{el.titre}}</h3>
-			<button class="button button-block button-balanced" ng-click="$state.go('app.list.detail', {detailId:el.id});">{{el.slogan}}</button>
+			<button class="button button-block button-balanced" ng-click="goToDetail(el.id)">{{el.slogan}}</button>
 		</ion-item>
 	</ion-list>
   </ion-content>

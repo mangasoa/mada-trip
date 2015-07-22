@@ -1,21 +1,39 @@
 <ion-side-menus enable-menu-with-back-views="false">
 	<ion-side-menu-content>
 		<ion-nav-bar class="bar-stable">
+		
+			<ion-nav-buttons class="button" side="left"  ui-sref="app.trips">
+				<img class="logo" src='img/LOGOWEB_CATTA.png' width="123" height="167">
+			</ion-nav-buttons>
 
 		  	<ion-nav-buttons side="left">
-			<button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-			</button>
+				<button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+				</button>
 			</ion-nav-buttons>
 
 			<ion-nav-buttons side="right">
-			<button class="button button-icon button-clear ion-map" menu-toggle="right">
-            </button>
+				<button class="button button-icon button-clear ion-map" menu-toggle="right">Carte
+	            </button>
 		  	</ion-nav-buttons>
 
+		  	
 		  	<ion-nav-buttons side="right">
-			<button class="button button-icon button-clear ion-search">
+			<button class="button button-icon button-clear ion-search" ui-sref="app.search"> 
             </button>
+            <!--<ion-item menu-close href="#/app/search"><button class="button button-icon button-clear ion-search">Recherche<input type="search"> </input>
+            </button>
+			</ion-item>	 --> 
 		  	</ion-nav-buttons>
+
+		  	<!--<ion-nav-buttons side="right" >
+        	<div class="bar bar-header item-input-inset" ng-if="hasFilters">
+            <label class="item-input-wrapper textbox-search">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" placeholder="Recherche">
+            </label>
+        	</div>
+   			</ion-nav-buttons>-->
+
 		</ion-nav-bar>
 			
 		<ion-nav-view name="menuContent"></ion-nav-view>
@@ -66,8 +84,13 @@
 			 	Map
 			</ion-item>
 		<ion-list>
-		<div class="padding">
-		    <form id="form-recherche">
+		<!-- ng-controller="FormMap" TODO refactto form controller with service -->
+		<div class="padding" ng-controller="FormMap">
+		    
+			<!--ng-include src="'templates/Menuside/formMap.html'"></ng-include-->
+
+
+			<form id="form-recherche">
 			    <h4>Je recherche</h4>
 			    <input type="text" value="Date d'arrivée" id="datepicker" />
 			    <ionic-datepicker idate="currentDate" disablepreviousdates="true"  disablefuturedates="false" callback="datePickerCallback" title="title">
@@ -75,9 +98,9 @@
 		    			{{ currentDate | date:'dd - MMMM - yyyy' }} </button>
 				</ionic-datepicker>		
 			    <div>
-			        <label for="TypeVoyage">Type de voyage</label>
+			        <label for="TypeVoyage" >Type de voyage</label>
 			        <br/>
-			        <select name="TypeVoyage" id="TypeVoyage">
+			        <select name="TypeVoyage" id="TypeVoyage" ng-model="formModel.voyageType">
 			            <option value="affichertous"></option>
 			            <option value="0">Voyage écotouriste</option>
 			            <option value="1">Vacances sportives</option>
@@ -92,7 +115,7 @@
 			    <div>
 			        <label for="choixregion">Choix de la Région</label>
 			        <br/>
-			        <select name="choixregion" id="choixregion">
+			        <select name="choixregion" id="choixregion"ng-model="formModel.region">
 			            <option value="affichertous"></option>
 			            <option value="7">Nord</option>
 			            <option value="8">Nord-Ouest</option>

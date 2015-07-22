@@ -1,0 +1,54 @@
+<ion-view view-title="A propos">
+  <ion-content>
+      <div class="padding">
+        <h4>Tongasoa, Welcome, Bienvenue à Madagascar!</h4>
+
+
+Search:<input ng-model="query" type="text"/>
+<input ng-model="query" type="text"/> <button ng-click="goToSearch()" ng-click="filter.queryHidden=''">clear</button>
+<br/>
+
+<!--<div class="toto" ng-repeat="trip in trips| filter:filter.queryHidden | filter:query | orderBy:trierVoyage:reverse">
+    <span>{{trip.region}}</span>
+  </div>
+
+<div class="toto" ng-repeat="trip in trips| filter:filter.queryHidden | filter:query | orderBy:trierVoyage:reverse">
+    <span>{{trip.region}}</span>
+  </div>-->
+
+
+
+
+
+  <ion-list>
+    <ion-item ng-repeat="el in trips | orderBy:'nom'">
+      <img ng-src="{{el.imgwindow}" width="100%" />
+      <h3 class="homeimg">{{el.nom}}</h3>
+      <h3 class="homeimg">{{el.description}}</h3>
+      <button class="button button-block button-balanced" ng-click="goToDetail(el.id)">{{el.type_top}}</button>
+    </ion-item>
+  </ion-list>
+
+<!--<table>
+  <tr>
+    <th> <a href="" ng-click="trierVoyage ='ville' ; reverse = !reverse">Ville</a></th>
+    <th> <a href="" ng-click="trierVoyage ='region'; reverse = !reverse">Region</a></th>
+    <th><a href="" ng-click="trierVoyage ='type'; reverse = !reverse">Type de voyage</a></th>
+  </tr>
+
+  <tr ng-repeat="trip in trips| filter:filter.queryHidden | filter:query | orderBy:trierVoyage:reverse">
+    <td>{{trip.ville}}</td>
+    <td>{{trip.region}}</td>
+    <td><a href="javascript:;" ng-click="filter.queryHidden = trip.type">{{trip.type}}</a></td>
+    <td><img ng-src="images/{{trip.img}}" width="25%"> </img></td>
+  </tr>
+
+
+</table>
+
+
+
+        </ul>
+      </div>--> 
+  </ion-content>
+</ion-view>

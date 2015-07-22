@@ -64,3 +64,17 @@
   margin-top: -205px;
   width: 400px;
  }
+
+ .logo{
+  width:20%;
+  height:20%;
+ }
+<!--.button.button.button-icon.ion-android-share-alt{
+ margin-right: 125px; 
+}
+ .ion-android-share-alt::before{
+  margin-right:5px;
+ }
+ .ion-android-share-alt::after{
+  margin-right: 725px;
+ }

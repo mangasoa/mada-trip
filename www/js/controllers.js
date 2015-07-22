@@ -13,7 +13,7 @@ angular.module('starter.controllers', [])
   $scope.loginData = {};
 
   // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
+  $ionicModal.fromTemplateUrl('templates/Menuside/login.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
@@ -40,7 +40,7 @@ angular.module('starter.controllers', [])
     }, 1000);
   };
 
-  //datepicker
+  // start datepicker
   $scope.currentDate = new Date();
 
   $scope.datePickerCallback = function (val) {
@@ -52,6 +52,8 @@ angular.module('starter.controllers', [])
   };
 
 })
+
+        //Start contact Controller
 
 .controller('ContactCtrl', function($scope, $ionicLoading) {
    $scope.toggleItem = function(item){
@@ -119,6 +121,8 @@ angular.module('starter.controllers', [])
   }
 })
 
+              //start HomeTrips Controller
+
 .controller('TripsCtrl', function($scope, $firebaseArray, $state) {
   var ref = new Firebase('https://my-madagascar-trip.firebaseio.com/locationTypes');
   $scope.trips = $firebaseArray(ref);
@@ -129,6 +133,8 @@ angular.module('starter.controllers', [])
   }
 
 })
+
+            //start Lists controller
 
 .controller('ListsCtrl', function($scope, $state, $stateParams, $firebaseArray) {
   var ref = new Firebase('https://my-madagascar-trip.firebaseio.com/locationLists');
@@ -144,11 +150,28 @@ angular.module('starter.controllers', [])
 
   $scope.goToDetail = function(id){
     console.log(id);
-    $state.go('app.list.detail', {detailId: id});
+    $state.go('app.detail', {detailId: id});
   }
 })
 
-.controller('DetailsCtrl', function($scope, $stateParams, $firebaseArray) {
+            //start Details controller
+
+.controller('DetailsCtrl', function($scope, $stateParams, $firebaseArray, $firebaseObject) {
   console.log($stateParams.detailId);
+  console.log($stateParams.type);
+  var ref = new Firebase('https://my-madagascar-trip.firebaseio.com/locationLists');
+  lists = $firebaseArray(ref);
+  lists.$loaded().then(function(data){
+    $scope.detail;
+    for(var i=0;i<lists.length;i++){
+      if(lists[i].id == $stateParams.detailId){
+        $scope.detail = lists[i];
+        break;
+      }
+    }
+    console.log($scope.detail);
+    var refLocation = new Firebase("https://my-madagascar-trip.firebaseio.com/locations/"+$scope.detail.location);
+    $scope.location = $firebaseObject(refLocation);
+ })
 })
 

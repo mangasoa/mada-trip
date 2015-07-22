@@ -1,49 +1,99 @@
 angular.module('madamap.controllers', ['starter.controllers','starter'])
-
-.controller('MadaMapCtrl', function($scope, $ionicLoading, $compile, $firebaseArray) 
+.controller('MadaMapCtrl', function($rootScope,$scope, $ionicLoading, $compile, $firebaseArray) 
 {
+
+
+    console.log('hello test ') 
+
+
 	$scope.currentDate = new Date();
 	$scope.title = "Custom Title";
 
-	$scope.datePickerCallback = function (val) {
-    if(typeof(val)==='undefined'){      
-        console.log('Date not selected');
-    }else{
-        console.log('Selected date is : ', val);
-    }
-};
 
+    console.log('****** test ',$rootScope)
+
+	$scope.datePickerCallback = function (val) {
+	    if(typeof(val)==='undefined'){      
+	        console.log('Date not selected');
+	    }else{
+	        console.log('Selected date is : ', val);
+	    }
+	}	
+
+
+	$rootScope.$watch('formModel.voyageType', function(newValue, oldValue) {
+
+		console.log('formModel voyageType new value ', newValue);
+		//Récupérer les données
+		var ref = new Firebase("https://my-madagascar-trip.firebaseio.com/locations");
+		$scope.locations = $firebaseArray(ref);
+		$scope.locations.$loaded()
+		.then(function(){
+			$scope.locationsF = [];
+			for(var i=0;i<$scope.locations.length;i++){
+				var type = $scope.locations[i].type.split(',');
+				for(var j=0;j<type.length;j++){
+					if(type[j] == newValue){
+						$scope.locationsF.push($scope.locations[i]);
+						break;
+					}
+				}
+			}
+
+			//Pour afficher icone flower
+			var image = default_image;
+			var myLatlng = new google.maps.LatLng(-18.766947, 46.869107);
+			var mapOptions = {
+				center: myLatlng,
+				zoom: 5,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+			for (var k=0; k<$scope.locationsF.length; k++)
+			{
+				var marker = new google.maps.Marker({
+					position: { lat: parseFloat($scope.locations[k].lat), lng:parseFloat($scope.locations[k].lng)},
+					map: map,
+					title: $scope.locations[k].nom,
+					icon: image
+				});
+			}
+		})
+	});
+
+
+
+    console.log('******')
 	//Début javascript Carte
 
 	var default_image = 'img/flower.png';
 	var cyclone_image = 'img/cyclone2.png';
 	var region_cyclone = Array(7,8,9,10,12,13,14,15);
-
-	var ref = new Firebase("https://my-madagascar-trip.firebaseio.com/locations");
+	
 	//Liste des fenêtres qui contiennent la description de la randonnée
 	var infoWindows = [];
+	
 	//télécharger les données 
+	var ref = new Firebase("https://my-madagascar-trip.firebaseio.com/locations");
 	$scope.locations = $firebaseArray(ref);
-
 	$scope.locations.$loaded()
 	.then(function()
 	{
 		var myLatlng = new google.maps.LatLng(-18.766947, 46.869107);
 
-		var mapOptions = 
-		{
-		center: myLatlng,
-		zoom: 5,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
+		var mapOptions = {
+			center: myLatlng,
+			zoom: 5,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
 
 		// Affficher la carte google maps
-	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+		var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-	//Pour afficher icone flower
-			var image = default_image;
+		//Pour afficher icone flower
+		var image = default_image;
 
-	//Afficher les trips sur la carte
+		//Afficher les trips sur la carte
 		for (var i=0; i<$scope.locations.length; i++)
 		{
 			var marker = new google.maps.Marker({
@@ -51,7 +101,7 @@ angular.module('madamap.controllers', ['starter.controllers','starter'])
 				map: map,
 				title: $scope.locations[i].nom,
 				icon: image
-			});
+		});
 			
 		//$scope.locations[i].marker = marker;
 				//Element Ã  Afficher dans infowindow
@@ -71,7 +121,7 @@ angular.module('madamap.controllers', ['starter.controllers','starter'])
 								'<div id="typitopi">' + typeTop + '</div>'+
 								'<img class="imageInfoWindow" src="img/' + $scope.locations[i].imgwindow +'" height="142" width="22">'+
 								'<div>' + $scope.locations[i].description + '</div>'+				
-							   '</div>';
+							  '</div>';
 
 				var infowindow = new google.maps.InfoWindow();
 				
@@ -93,7 +143,7 @@ angular.module('madamap.controllers', ['starter.controllers','starter'])
 				}) (marker,content,infowindow));  
 		  
    		 }
-	 	$scope.map = map;		 	  
+	 	$scope.map = map;
 	 })
 		.catch(function(err)
 	{
