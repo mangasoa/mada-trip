@@ -1,12 +1,13 @@
 <ion-view view-title="A propos">
   <ion-content>
       <div class="padding">
-        <h4>Tongasoa, Welcome, Bienvenue à Madagascar!</h4>
-
-
-Search:<input ng-model="query" type="text"/>
-<input ng-model="query" type="text"/> <button ng-click="goToSearch()" ng-click="filter.queryHidden=''">clear</button>
-<br/>
+        <h2>Bienvenue à Madagascar!</h2>
+        
+         <h4>Choisir:</h4> <button ng-click="goToSearch()" ng-click="filter.queryHidden=''">Région</button>
+         <button ng-click="goToSearch()" ng-click="filter.queryHidden=''">Ville</button>
+         <button ng-click="goToSearch()" ng-click="filter.queryHidden=''">Type</button>
+         <button ng-click="goToSearch()" ng-click="filter.queryHidden=''">clear</button>
+        <br/><br/>
 
 <!--<div class="toto" ng-repeat="trip in trips| filter:filter.queryHidden | filter:query | orderBy:trierVoyage:reverse">
     <span>{{trip.region}}</span>
@@ -16,16 +17,12 @@ Search:<input ng-model="query" type="text"/>
     <span>{{trip.region}}</span>
   </div>-->
 
-
-
-
-
   <ion-list>
     <ion-item ng-repeat="el in trips | orderBy:'nom'">
-      <img ng-src="{{el.imgwindow}" width="100%" />
+      <img ng-src="{{el.imgwindow}}" width="100%" />
       <h3 class="homeimg">{{el.nom}}</h3>
       <h3 class="homeimg">{{el.description}}</h3>
-      <button class="button button-block button-balanced" ng-click="goToDetail(el.id)">{{el.type_top}}</button>
+      <button class="button button-block button-balanced" ng-click="goToDetail(el.id)">{{el.slogano}}</button>
     </ion-item>
   </ion-list>
 
@@ -48,7 +45,7 @@ Search:<input ng-model="query" type="text"/>
 
 
 
-        </ul>
-      </div>--> 
+        </ul>--> 
+      </div>
   </ion-content>
 </ion-view>

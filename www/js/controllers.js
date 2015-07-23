@@ -13,7 +13,7 @@ angular.module('starter.controllers', [])
   $scope.loginData = {};
 
   // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/Menuside/login.html', {
+  $ionicModal.fromTemplateUrl('templates/Menuside/LOG/login.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
@@ -157,6 +157,9 @@ angular.module('starter.controllers', [])
             //start Details controller
 
 .controller('DetailsCtrl', function($scope, $stateParams, $firebaseArray, $firebaseObject) {
+
+$scope.map = { center: { latitude: -18.766947, longitude: 46.869107 }, zoom: 6 };
+
   console.log($stateParams.detailId);
   console.log($stateParams.type);
   var ref = new Firebase('https://my-madagascar-trip.firebaseio.com/locationLists');
@@ -174,4 +177,18 @@ angular.module('starter.controllers', [])
     $scope.location = $firebaseObject(refLocation);
  })
 })
+
+.controller('HeaderCtrl', function($scope, $state) {
+
+    console.log("HeaderCtrl");
+
+
+  $scope.goHome = function(){
+    console.log("go Home");
+    $state.go("app.trips")
+  }
+
+});
+
+
 

@@ -1,18 +1,28 @@
+
+
+
 <ion-side-menus enable-menu-with-back-views="false">
-	<ion-side-menu-content>
-		<ion-nav-bar class="bar-stable">
-		
-			<ion-nav-buttons class="button" side="left"  ui-sref="app.trips">
-				<img class="logo" src='img/LOGOWEB_CATTA.png' width="123" height="167">
+
+		<ion-nav-bar class="bar-stable" ng-controller="HeaderCtrl">
+	
+
+	
+		  	<ion-nav-buttons side="left">
+
+				<button class="button button-icon button-clear ion-navicon" menu-toggle="left"  >
+				</button>
+	
+		  		<a  class="button button-clear" ng-click="goHome()"  >
+		  			<img src="img/LOGOWEB_CATTA.png" width="123"  height="167" class="logo"> 
+				</a>
+
+				
 			</ion-nav-buttons>
 
-		  	<ion-nav-buttons side="left">
-				<button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-				</button>
-			</ion-nav-buttons>
+
 
 			<ion-nav-buttons side="right">
-				<button class="button button-icon button-clear ion-map" menu-toggle="right">Carte
+				<button class="button button-icon button-clear ion-map" menu-toggle="right">
 	            </button>
 		  	</ion-nav-buttons>
 
@@ -20,6 +30,8 @@
 		  	<ion-nav-buttons side="right">
 			<button class="button button-icon button-clear ion-search" ui-sref="app.search"> 
             </button>
+
+
             <!--<ion-item menu-close href="#/app/search"><button class="button button-icon button-clear ion-search">Recherche<input type="search"> </input>
             </button>
 			</ion-item>	 --> 
@@ -36,6 +48,10 @@
 
 		</ion-nav-bar>
 			
+
+
+	<ion-side-menu-content>
+
 		<ion-nav-view name="menuContent"></ion-nav-view>
 	</ion-side-menu-content>
 
@@ -76,12 +92,12 @@
 
 	<ion-side-menu side="right">
 		<ion-header-bar class="bar-stable">
-			<h1 class="title">Choisir son voyage</h1>
+			<h1 class="title">Découvrez Madagagascar</h1>
 		</ion-header-bar>
 		<ion-content>
 		<ion-list>
 			<ion-item menu-close href="#/app/map">
-			 	Map
+			 	Carte
 			</ion-item>
 		<ion-list>
 		<!-- ng-controller="FormMap" TODO refactto form controller with service -->

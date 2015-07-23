@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic','starter.controllers','madamap.controllers','firebase','avantvoyage.controllers','ionic-datepicker'])
+angular.module('starter', ['ionic','starter.controllers','madamap.controllers','firebase','avantvoyage.controllers','ionic-datepicker','uiGmapgoogle-maps'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -29,6 +29,18 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     templateUrl: "templates/Menuside/menu.html",
     controller: 'AppCtrl'
   })
+
+/* Start router forgotPasssword*/  
+  .state('app.forgotPasssword', {
+      url: "/forgotPasssword",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/Menuside/LOG/forgotPasssword.html",
+          controller: 'TripsCtrl'
+        }
+      }
+    })
+
 
 /* Start router HOME page- Annonce top favoris-recommandation-coups de coeur etc...*/  
   .state('app.trips', {
@@ -59,7 +71,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     url: "/apropos",
     views: {
       'menuContent': {
-        templateUrl: "templates/Menuside/apropos.html"
+        templateUrl: "templates/Menuside/APROPOS/apropos.html"
       }
     }
   })
@@ -68,7 +80,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     url: "/map",
     views: {
       'menuContent': {
-        templateUrl: "templates/Menuside/map.html",
+        templateUrl: "templates/Menuside/MAPPING/map.html",
         controller:'MadaMapCtrl'
       }
     }
@@ -78,7 +90,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     url: "/avantvoyage",
     views: {
       'menuContent': {
-        templateUrl: "templates/Menuside/avantvoyage.html"
+        templateUrl: "templates/Menuside/AVANTVOYAGE/avantvoyage.html"
       }
     }
   })
@@ -86,7 +98,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     url: "/faq",
     views: {
       'menuContent': {
-        templateUrl: "templates/Menuside/faq.html"
+        templateUrl: "templates/Menuside/FAQ/faq.html"
       }
     }
   })
@@ -94,7 +106,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     url: "/partenaire",
     views: {
       'menuContent': {
-        templateUrl: "templates/Menuside/partenaire.html"
+        templateUrl: "templates/Menuside/PARTENAIRE/partenaire.html"
       }
     }
   })
@@ -102,7 +114,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     url: "/parametre",
     views: {
       'menuContent': {
-        templateUrl: "templates/Menuside/parametre.html"
+        templateUrl: "templates/Menuside/PARAMETRER/parametre.html"
       }
     }
   })
@@ -110,7 +122,7 @@ angular.module('starter', ['ionic','starter.controllers','madamap.controllers','
     url: "/contact",
     views: {
       'menuContent': {
-        templateUrl: "templates/Menuside/contact.html"
+        templateUrl: "templates/Menuside/CONTACTER/contact.html"
       }
     }
   })

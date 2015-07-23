@@ -4,6 +4,18 @@
     height:650px;
 }
 
+h1{text-align: center;}
+
+h2{text-align: center;}
+
+.logoApropos{
+ text-align: center;
+}
+
+.detailButton{
+  margin-left:140px;
+}
+
 .homeimg{
   text-align:center;
    padding-bottom: 5px;
@@ -69,12 +81,29 @@
   width:20%;
   height:20%;
  }
-<!--.button.button.button-icon.ion-android-share-alt{
- margin-right: 125px; 
+.button.button.button-icon.ion-thumbsup{
+ margin-left: 110px; 
 }
  .ion-android-share-alt::before{
   margin-right:5px;
  }
  .ion-android-share-alt::after{
-  margin-right: 725px;
+  margin-right:5px;
  }
+
+ .ion-thumbsup::before{
+  margin-right:5px;
+  padding-left:0px;
+ }
+
+ .ion-ios-chatbubble-outline::before{
+  margin-right:5px;
+  padding-left:-60px;
+ }
+
+ .ion-ios-location::before{
+  margin-right:5px;
+  padding-left:300px;
+ }
+
+ .angular-google-map-container { height: 450px; }
