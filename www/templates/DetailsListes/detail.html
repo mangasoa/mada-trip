@@ -15,19 +15,21 @@
     <ion-list>
 		<ion-item>
 			<img ng-src="{{detail.imgUrl}}" "{{el.imgwindow}}" width="100%" />
-			<h3 class="homeimg">{{el.titre}}</h3>
+			<h3 class="homeimg">{{detail.nom}}</h3>
 			<button class="button button-block button-balanced">{{detail.slogan}}</button>
 		</ion-item>
 	</ion-list>
 	<div class="padding">
 			<h3>Qui sommes nous?</h3>
-			{{location.description}}
+			{{detail.description}}
 	</div>
   <div class="detailButton">
   <button class="button button-icon ion-ios-location">Location
               </button>
   </div> 
   <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+    <ui-gmap-markers models="iconsMarkersDetail" idkey="iconsMarkersDetail.id" coords="'coords'" icon="'icon'">
+    </ui-gmap-markers>
   </ui-gmap-google-map>
   <br/>
 	<div ng-app='starter' ng-controller="AvantTripCtrl">

@@ -1,4 +1,4 @@
-<ion-view view-title="Avant le voyage">
+  <ion-view view-title="Avant le voyage">
   <ion-content>
   <div ng-app='starter' ng-controller="AvantTripCtrl">
     <h2>Se préparer au mieux</h2>
@@ -13,9 +13,10 @@
           {{group.name}}
         </ion-item>
         <ion-item class="item-accordion"
+          ng-repeat="item in group.items"
           ng-show="isGroupShown(group)"
         >
-          {{group.description}}
+          {{item}}
         </ion-item>
       </div>
     </ion-list> 

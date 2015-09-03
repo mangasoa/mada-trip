@@ -50,7 +50,6 @@ angular.module('madamap.controllers', ['starter.controllers','starter'])
 			$scope.icons = [];
 			for (var k=0; k<$scope.locationsF.length; k++)
 			{
-
 				$scope.iconsMarkers.push({
 			        id: k,
 			        icon:default_image,
@@ -59,9 +58,6 @@ angular.module('madamap.controllers', ['starter.controllers','starter'])
 			            longitude: parseFloat($scope.locations[k].lng)
 			        }
 			    });
-
-
-			    console.log("-- -> ",$scope.iconsMarkers)
 			}
 
 

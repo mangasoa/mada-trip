@@ -161,21 +161,61 @@ angular.module('starter.controllers', [])
 $scope.map = { center: { latitude: -18.766947, longitude: 46.869107 }, zoom: 6 };
 
   console.log($stateParams.detailId);
-  console.log($stateParams.type);
-  var ref = new Firebase('https://my-madagascar-trip.firebaseio.com/locationLists');
-  lists = $firebaseArray(ref);
-  lists.$loaded().then(function(data){
+  //console.log($stateParams.type);
+  var ref = new Firebase('https://my-madagascar-trip.firebaseio.com/locations/'+$stateParams.detailId);
+  $scope.detail = $firebaseObject(ref);
+  $scope.detail.$loaded().then(function(data){
+
+    $scope.iconsMarkersDetail = [];
+    $scope.icons = [];
+    var default_image = 'img/flower.png';
+    console.log($scope.detail.lat)
+    $scope.iconsMarkersDetail.push({
+      id: 0,
+      icon: default_image,
+      coords: {
+        latitude: parseFloat($scope.detail.lat),
+        longitude: parseFloat($scope.detail.lng)
+      }
+    });
+  /*
     $scope.detail;
     for(var i=0;i<lists.length;i++){
-      if(lists[i].id == $stateParams.detailId){
+      if(lists[i].$id == $stateParams.detailId){
         $scope.detail = lists[i];
         break;
       }
     }
     console.log($scope.detail);
     var refLocation = new Firebase("https://my-madagascar-trip.firebaseio.com/locations/"+$scope.detail.location);
-    $scope.location = $firebaseObject(refLocation);
+    $scope.location = $firebaseObject(refLocation);*/
  })
+  $scope.groups = [];
+  for (var i=0; i<10; i++) {
+    $scope.groups[i] = {
+      name: i,
+      items: []
+    };
+    for (var j=0; j<3; j++) {
+      $scope.groups[i].items.push(i + '-' + j);
+    }
+  }
+  
+  /*
+   * if given group is the selected group, deselect it
+   * else, select the given group
+   */
+  $scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  };
+  
 })
 
 .controller('HeaderCtrl', function($scope, $state) {

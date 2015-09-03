@@ -37,6 +37,7 @@ angular.module('madamap.controllers', ['starter.controllers','starter'])
 		.then(function(){
 			$scope.locationsF = [];
 			for(var i=0;i<$scope.locations.length;i++){
+				console.log($scope.locations.type);
 				var type = $scope.locations[i].type.split(',');
 				for(var j=0;j<type.length;j++){
 					if(type[j] == newValue){

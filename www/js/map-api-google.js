@@ -27,8 +27,10 @@ angular.module('madamap.controllers', ['starter.controllers','starter'])
 		//Récupérer les données
 		var ref = new Firebase("https://my-madagascar-trip.firebaseio.com/locations");
 		$scope.locations = $firebaseArray(ref);
+		console.log("ok");
 		$scope.locations.$loaded()
 		.then(function(){
+			console.log("ok");
 			$scope.locationsF = [];
 			for(var i=0;i<$scope.locations.length;i++){
 				var type = $scope.locations[i].type.split(',');
